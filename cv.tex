@@ -1,0 +1,294 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[left=0.6in,top=0.4in,right=0.6in,bottom=0.4in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+\usepackage{contour}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{linegoal}
+\usepackage{setspace}
+\usepackage{ulem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage[absolute,overlay]{textpos}
+
+\TPGrid{16}{24}  % Creates a 16-column, 24-row grid on the page
+
+\pagestyle{empty}
+
+\renewcommand{\ULdepth}{1.8pt}
+
+\newcommand{\firstcolwidth}{120pt}
+\newcommand{\capitalletterspacing}{10}
+\newcommand{\spaceaftersection}{1em}
+\newcommand{\spaceaftername}{0.5em}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+\newcommand{\drawline}{\leavevmode\leaders\hrule height 1pt\hfill\kern 0pt}
+\newcommand{\link}[2]{\myuline{\textcolor{black}{\href{#1}{#2}}}}
+\newcommand{\newsection}[1]{
+    \drawline
+    \break
+    \begin{minipage}[t]{\firstcolwidth}
+        \addfontfeature{LetterSpace=\capitalletterspacing}
+        \footnotesize{\MakeUppercase{#1}}
+        \addfontfeature{LetterSpace=0}
+    \end{minipage}
+}
+\newcommand{\newsectionspace}{
+    \begin{minipage}[t]{\linegoal}
+        \hfill
+        \vspace{\spaceaftersection}
+    \end{minipage}
+}
+\newcommand{\experience}[6]{
+    \begin{minipage}[t]{\firstcolwidth}
+        \footnotesize{#1 \textemdash\ #2}
+    \end{minipage}
+    \begin{minipage}[t]{\linegoal}
+        \textbf{\normalsize{#3 \textemdash\ #4}}
+        \hfill
+        \footnotesize{#5}
+        \begin{singlespace}
+            \begin{flushleft}
+                \footnotesize{#6}
+            \end{flushleft}
+        \end{singlespace}
+    \end{minipage}
+}
+\newcommand{\project}[3]{
+    \begin{minipage}[t]{\firstcolwidth}
+        \footnotesize{#1}
+    \end{minipage}
+    \begin{minipage}[t]{\linegoal}
+        \textbf{\normalsize{#2}}
+        \begin{singlespace}
+            \begin{flushleft}
+                \footnotesize{#3}
+            \end{flushleft}
+        \end{singlespace}
+    \end{minipage}
+}
+\newcommand{\award}[5]{
+    \begin{minipage}[t]{\firstcolwidth}
+        \footnotesize{#1}
+    \end{minipage}
+    \begin{minipage}[t]{\linegoal}
+        \textbf{\normalsize{#2, #3}}
+        \hfill
+        \footnotesize{#4}
+        \begin{singlespace}
+            \begin{flushleft}
+                \footnotesize{#5}
+            \end{flushleft}
+        \end{singlespace}
+    \end{minipage}
+}
+\newcommand{\education}[4]{
+    \begin{minipage}[t]{\firstcolwidth}
+        \footnotesize{#1 \textemdash\ #2}
+    \end{minipage}
+    \begin{minipage}[t]{\linegoal}
+        \textbf{\normalsize{#3}}
+        \hfill
+        \footnotesize{#4}
+    \end{minipage}
+}
+
+
+
+\begin{document}
+    \begin{minipage}[b]{0.3\textwidth}
+        \includegraphics[height=0.5\textwidth]{cv_linkedin_gray.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \Large{\textbf{Marc Giannuzzi, Software Engineer}} \\
+        \vspace{\spaceaftername}
+        \footnotesize{(+33)695646454, marc.giannuzzi@gmail.com}
+    \end{minipage}
+
+    \newsection{Liens}
+    \begingroup
+        \begin{minipage}[t]{\linegoal}
+            \footnotesize{\link{https://github.com/marcgiannuzzi}{GitHub}} \\
+            \footnotesize{\link{https://www.linkedin.com/in/marc-giannuzzi-b098b216b/}{Linkedin}}
+        \end{minipage}
+    \endgroup
+
+    \newsection{Experience}
+    \newsectionspace
+    \experience{Janvier 2023}{\textit{present}}{Visian}{Machine Learning Engineer}{La Défense, FR}{
+        \textit{Contexte :}
+        \link{https://visian.tech/}{Visian} est une entreprise de \textbf{conseil} spécialisée dans les projets utilisant la donnée à grande échelle.
+        Ma présentation vidéo: \link{https://www.youtube.com/watch?v=X60fo2I4ltw&ab_channel=WelcometotheJungle}{Youtube}
+        \begin{itemize}
+            \item Recrutements de profils techniques (Data Ingénieurs, Data Scientists, Devops, Fullstack)
+            \item \textbf{Direction du projet Pysquad}, développant en interne des projets digitaux
+            \item Coordination de l'implémentation générique d'un \textbf{projet d'Intelligence Artificielle} (IA) générative pour différentes tâches d'inférence (textual, vision, multimodal etc...) avec l'utilisation des services ML/DL Azure et Azure AI Studio
+            \item \textbf{Création d'une data plateforme} en vue d'aider les sales à récupérer les données de missions, prospects, clients, consultants etc
+            
+        \end{itemize}
+        \textit{Compétences :} Docker · Azure AI Studio · Django · Streamlit · PowerBI · FastAPI · Elastic Stack (ELK) · AWS RDS · Redis · AWS Code Artifacts
+        
+        \newsectionspace
+        \experience{Janvier 2023}{\textit{présent}}{Engie}{Consultant Data}{Paris, FR}{
+            \textit{Contexte :}
+            \link{https://particuliers.engie.fr/}{Engie} est le premier fournisseur de gaz naturel et d'électricité verte, ainsi que le troisième plus grand groupe mondial dans le secteur de l'énergie.
+    
+            \textbf{Data Engineer} faisant partie de l'équipe agile (5 personnes) développant les produit Mon Bonus Engie / Ecodefi+, ICE (Impact Carbone Elec) et Ecogestes Dynamiques évoluant dans le framework SAFe
+            \begin{itemize}
+                \item Ecodefi+ \link{https://particuliers.engie.fr/electricite/contrat-electricite/mon-bonus-engie.html}{(Mon Bonus Engie)} est un service gratuit proposant aux particuliers d'être récompensé sur leur sobriété énergétique lors de challenges (\textbf{300k clients})
+                
+                \item ICE \link{https://particuliers.engie.fr/decouvrir-espace-client/application-mobile/meteo-carbone-elec.html}{(Impact Carbone Elec)} permet aux clients d'\textbf{analyser les pics de consommation carbone dans le futur et d'adapter leur consommation} en fonction (\textbf{1M clients}).
+                \item Ecogestes Dynamiques contribue à expliquer les impacts des objets électriques dans les foyers (\textbf{1M clients})
+            \end{itemize}
+    
+            \textbf{Missions}
+            \begin{itemize}
+                \item Implémentation et développement des produits
+                \item Gestion des données à grande échelle (bases des données, orchestration des flux...)
+                \item Elaboration des KPIs techniques et fonctionnelles
+                \item Monitoring et Alerting des solutions
+                \item Création d'APIs REST (~100k appels/jour), latence < 1sec
+                \item Scaling d'algorithmes de Deep Learning (DeepAR, Temporal Fusion Transformer...) 
+                \item Participation à l'architecture des micro-services AWS et des plateformes digitales
+                \item Optimisations (mémoire, temps d'exécution, refactoring...)
+                \item Optimisations des flux bases de données (structure, index...)
+                \item Reporting automatisé via SNS
+                \item Gitlab CICD
+                \item Rédaction de roadmaps dans le cadre de la migration d'une technologie centrale utilisée depuis plusieurs années au sein du train SAFe
+                \item Participations aux architectures technico-fonctionnelles
+            \end{itemize}
+    
+            \textit{Compétences :} c3ai · JavaScript · Jenkins · AWS Lambda · Amazon Kinesis · Databricks · Elastic Stack (ELK) · Python (langage de programmation) · AWS S3 · Terraform · Amazon CloudWatch · Splunk · MLflow · Amazon DynamoDB · TIDB · Apache Airflow · Amazon Simple Queue Service (SQS) · Amazon Simple Notification Service (SNS)
+        }
+    }
+    \newsectionspace
+    \experience{Août 2021}{Octobre 2022}{Aqua Digital Rising}{Lead Data Scientist}{Paris, FR}{
+        \textit{Contexte :}
+        \link{https://www.linkedin.com/company/aqua-digital-rising/}{Aqua Digital Rising} est une \textbf{startup fintech} qui ambitionne de révolutionner le pari sportif en analysant toutes les statistiques des joueurs et des équipes.
+
+        \textbf{Gestion de la donnée}
+        \begin{itemize}
+            \item Gestion du stockage (création, structuration, nettoyage) de plusieurs bases de données (MongoDB, SQL server, HDF5) à partir de données récupérées par les fournisseurs Sport Radar et Opta 
+            \item Structuration des flux de données en Python à travers les différents composants de l'architecture et optimisation de la vitesse de lecture grâce aux index SQL Server (plusieurs centaines de Go)
+            \item Création d'une API REST hautement configurable permettant à l'équipe front-end de récupérer les agrégations de la base de données et d'autres informations statiques 
+            \item Sauvegardes temporaires des résultats de requêtes de l'API grâce à Redis 
+            \item Mise à jour en direct des données statistiques avec l'utilisation de RabbitMq 
+            \item Analyses et data visualisation
+            \item Algorithmes de machine learning (clustering) et visualisations pour l'analyse des statistiques des joueurs et des équipes
+        \end{itemize}
+    
+        \textbf{Autres missions}
+        \begin{itemize}
+            \item Configuration de divers services Azure (Azure Functions, Azure Web Services, Azure Artifacts, Azure Pipelines, Azure Keyvault) en lien avec la stratégie Cloud de l'entreprise 
+            \item Analyses quantitatives de crypto-monnaies avec InfluxDb pour alimenter la stratégie d'investissement 
+            \item Coordination de 2 ingénieurs (un data scientist et un développeur front-end)
+        \end{itemize}
+
+        \textit{Compétences :} Microsoft SQL Server · Scikit-learn · Redis · JIRA · RabbitMQ · Bases de données · InfluxDB · Bash · MongoDB · Microsoft Azure
+    }
+    \newsectionspace
+    \experience{Février 2021}{Juillet 2021}{Orange Business Services}{Data Scientist}{Paris, FR}{
+        \textit{Contexte :}
+        \link{https://www.orange-business.com/fr}{Orange Business Services} est une société de \textbf{conseil} dans la transformation digitale dans des projets de communication.
+        \begin{itemize}
+            \item Analyses et diagnostics des anomalies du réseau VoIP, notamment avec du machine learning (clustering)
+            \item Création d'un graphe de réseau VoIP dynamique avec Kibana puis Neo4J pour une visualisation plus facile, intégré dans une page web
+            \item Analyses des métriques Devops (utilisation CPU, stockage...) d'un cluster de serveurs Elastic
+            \item Automatisation de la suppression des logs Elastic avec log4j
+        \end{itemize}
+
+        \textbf{Note:}
+        VoIP = Voice over Internet Protocol est un réseau qui permet les appels téléphoniques via Internet
+
+
+        \textit{Compétences :} HTML · Scikit-learn · Elastic Stack (ELK) · Feuilles de style en cascade (CSS) · Python (langage de programmation) · Neo4j · JavaScript · Bases de données · Bash
+    }
+    \newsectionspace
+    \experience{Août 2020}{Mars 2021}{Digiberries}{Software Engineer}{Paris, FR}{
+        \textit{Contexte :}
+        \link{https://digiberries.fr/}{Digiberries} est une \textbf{agence de référencement web}, améliorant les stratégies SEO des clients.
+        \begin{itemize}
+            \item Développement d'un script permettant l'automatisation de création de rapports excel à partir de données Google Ads
+            \item Création d'un outil d'analyse SEO et de création de rapport automatisé PDF avec Lighthouse et des packages NodeJS
+            \item Automatisation d'envoi de mails
+        \end{itemize}
+        \textit{Compétences :} Lighthouse · Python (langage de programmation) · Google Ads · Node.js
+    }
+    \newsectionspace
+    \experience{Avril 2020}{Août 2020}{Eudonet CRM}{Data Scientist}{Courbevoie, FR}{
+        \textit{Contexte :}
+        \link{https://fr.eudonet.com/}{Eudonet} \textbf{développe des logiciels CRM} dans un context B2B.
+        \begin{itemize}
+            \item Mise en place de la suite Elastic (ElasticSearch, Kibana, Logstash + Filebeat) pour l'analyse de fichiers logs Windows IIS
+            \item Création d'un outil de monitoring avec des dashboards dynamiques dans Kibana
+            \item Création d'un algorithme Python pour la détection de baisse d'utilisation du CRM des clients. Utilisation de la librairie FBProphet
+            \item Création d'une plateforme web (Javascript, Node.js) dynamique permettant une visualisation des résultats de l'algorithme précédent
+            \item Visualisations PowerBI pour la gestion interne des projets des employés
+            \item Création de scripts powershell pour la gestion d'applications IIS
+            \item Requêtes SQL pour la création de rapports sur l'utilisation des clients et la modification de paramètres
+            \item Sprints agiles hebdomadaires
+        \end{itemize}
+        \textit{Compétences :} Microsoft SQL Server · HTML · Windows PowerShell · Elastic Stack (ELK) · Feuilles de style en cascade (CSS) · Python (langage de programmation) · Microsoft Power BI · JavaScript · Bases de données · Bash
+    }
+    \newsectionspace
+    \experience{Juillet 2019}{Sept. 2019}{Veesion}{Software Engineer}{Paris}{
+        \link{https://veesion.io/}{Veesion} est une scale-up française voulant \textbf{détecter automatiquement les vols} dans des supermarchés.
+        \begin{itemize}
+            \item Création d'une plateforme interne permettant de visualiser et labeliser 
+                (afin d'améliorer l'algorithme de détection de vols de l'entreprise) en direct des vidéos
+                avec Django
+            \item Classification de données permettant l'apprentissage du modèle de computer vision
+                Veesion est une scale-up française voulant détecter automatiquement les vos dans des supermarchés. \item Création d'une plateforme interne permettant de visualiser et labeliser (afin d'améliorer l'algorithme de détection de vols de l'entreprise) en direct des vidéos avec Django \item Classification de données permettant l'apprentissage du modèle de computer vision
+            \end{itemize}
+        
+        \textit{Compétences :} HTML · Feuilles de style en cascade (CSS) · Python (langage de programmation) · JavaScript · Amazon S3 · Django
+    }
+
+    \newsection{Projets}
+    
+    \newsectionspace
+    \project{2024}{Intelligence Artificielle}{
+        Création automatisée de contenus digitaux multimodaux
+    }
+    \newsectionspace
+    \project{2024}{Finance}{
+        Agorithmes et visualisations d'aide à l'analyse financière (Python)
+    }
+    \newsectionspace
+    \project{2021}{Algortihmes de tri}{
+        Plateforme de visualisation d'algorithmes de tri (React)
+    }
+    \newsectionspace
+    \project{2021}{Sémantique du Web}{
+        Site affichant la disponibilité des vélos/trains (RDF)
+    }
+    \newsectionspace
+    \project{2020}{NLP (Natural Language Processing)}{
+        Agent conversationnel affichant les paroles d'une chanson (Chatbot Messenger)
+    }
+    \newsectionspace
+    \project{2020}{Computer vision}{
+        Algorithme de computer vision transformant les gestes du doigt en équations via une webcam (Tensorflow, OpenCV)
+    }
+    \newsectionspace
+    \project{2019}{Deep Learning}{
+        Algorithme de scoring santé de recettes cuisine (Tensorflow)
+    }
+
+    \newsection{Education}
+    \newsectionspace
+    \education{Sept. 2018}{Juin 2021}{ESILV}{Paris, FR}
+    \newsectionspace
+    \education{Sept. 2016}{Déc. 2018}{CPGE Fénelon Sainte-Marie (MPSI-MP)}{Paris, FR}
+
+    \newsection{Langages}
+    \begin{minipage}[t]{\linegoal}
+        \small{\textbf{English}}: Fluent \qquad
+        \small{\textbf{Français}}: Natif \qquad
+    \end{minipage}
+\end{document}
