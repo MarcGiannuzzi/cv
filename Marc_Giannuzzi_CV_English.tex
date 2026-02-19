@@ -1,5 +1,6 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[left=0.6in,top=0.4in,right=0.6in,bottom=0.4in]{geometry}
+% Maximum margin reduction
+\usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry}
 \usepackage[parfill]{parskip}
 \usepackage[hidelinks]{hyperref}
 \usepackage{array}
@@ -13,15 +14,16 @@
 \usepackage{graphicx}
 \usepackage[absolute,overlay]{textpos}
 
-\TPGrid{16}{24}  % Creates a 16-column, 24-row grid on the page
+\TPGrid{16}{24}
 
 \pagestyle{empty}
 
 \renewcommand{\ULdepth}{1.8pt}
 
-\newcommand{\firstcolwidth}{120pt}
+% Reduced sidebar width for stacked dates
+\newcommand{\firstcolwidth}{65pt}
 \newcommand{\capitalletterspacing}{10}
-\newcommand{\spaceaftersection}{1em}
+\newcommand{\spaceaftersection}{0.8em}
 \newcommand{\spaceaftername}{0.5em}
 \newcommand{\myuline}[1]{%
   \uline{\phantom{#1}}%
@@ -29,6 +31,7 @@
 }
 \newcommand{\drawline}{\leavevmode\leaders\hrule height 1pt\hfill\kern 0pt}
 \newcommand{\link}[2]{\myuline{\textcolor{black}{\href{#1}{#2}}}}
+
 \newcommand{\newsection}[1]{
     \drawline
     \break
@@ -44,9 +47,11 @@
         \vspace{\spaceaftersection}
     \end{minipage}
 }
+
+% Command: Dates stacked vertically
 \newcommand{\experience}[6]{
     \begin{minipage}[t]{\firstcolwidth}
-        \footnotesize{#1 \textemdash\ #2}
+        \footnotesize{#1 \\ \textemdash \\ #2}
     \end{minipage}
     \begin{minipage}[t]{\linegoal}
         \textbf{\normalsize{#3 \textemdash\ #4}}
@@ -72,9 +77,10 @@
         \end{singlespace}
     \end{minipage}
 }
+% Command: Education with stacked dates
 \newcommand{\education}[4]{
     \begin{minipage}[t]{\firstcolwidth}
-        \footnotesize{#1 \textemdash\ #2}
+        \footnotesize{#1 \\ \textemdash \\ #2}
     \end{minipage}
     \begin{minipage}[t]{\linegoal}
         \textbf{\normalsize{#3}}
@@ -84,6 +90,7 @@
 }
 
 \begin{document}
+    \noindent
     \begin{minipage}[b]{0.3\textwidth}
         \includegraphics[height=0.5\textwidth]{cv_linkedin_gray.png}
     \end{minipage}
@@ -104,199 +111,176 @@
     \newsection{Experience}
 
     \newsectionspace
-    \experience{Sept. 2025}{Present}{Waiyer}{Freelance}{Paris, FR}{
+    \experience{Sept. 2025}{Present}{Waiyer}{Freelance / Contractor}{Paris, FR}{
         \textit{Context:}
-        \link{https://www.waiyer.com/}{Waiyer} is a digital company specializing in data and cloud architecture consulting.
-        Waiyer optimizes data management through bespoke solutions, leveraging cutting-edge technologies. 
-        Its mission is to design and implement efficient, sustainable solutions to help companies maximize their data value.
+        \link{https://www.waiyer.com/}{Waiyer} is a digital company specialized in data and cloud architecture.
+        Waiyer optimizes data management through custom solutions using the latest technologies. 
     
-        \begin{itemize}
-            \item Data architecture design and implementation
-            \item Orchestration of robust data pipelines
-            \item Development of analytical dashboards and Business Intelligence solutions
-            \item Software engineering: development of scripts, APIs, and automation tools
-            \item Strategic vision: technology stack advisory, architecture evolution, and technical roadmap design
-            \item Functional vision: definition of business needs, KPIs, and tailored dashboards
-            \item Technology watch: monitoring data trends and identifying innovation opportunities for clients
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Implementation of data architecture and pipeline orchestration.
+            \item Software engineering: development of scripts, APIs, and automation tools.
+            \item Functional vision: requirement definition, KPIs, and tailored dashboards.
+            \item Tech monitoring: tracking data trends and identifying innovation opportunities.
         \end{itemize}
     
-        \textit{Skills:} Kubernetes · Github Actions · Python · AWS S3 · SQL · MongoDB · PostgreSQL · PowerBI · Flutter · Go · Typescript · gRPC
+        \textit{Skills:} Kubernetes · Github Actions · Python · AWS S3 · SQL · MongoDB · PostgreSQL · PowerBI · Flutter · Go · Typescript · gRPC · Redis
     }
 
     \newsectionspace
-    \experience{Apr. 2025}{Sept. 2025}{LCL [SFEIR]}{Data Architect}{Villejuif, FR}{
+    \experience{Apr. 2025}{Sept. 2025}{SFEIR}{Data Architect for LCL}{Villejuif, FR}{
         \textit{Context:}
-        \link{https://www.lcl.fr/}{LCL} (Le Crédit Lyonnais) is a major French bank, a subsidiary of the Crédit Agricole group.
+        \link{https://www.lcl.fr/}{LCL} (Le Crédit Lyonnais) is a major French bank.
+        Optimized internal organization for the SNI entity and implemented analytical dashboards for the Executive Committee. 
     
-        Optimization of the internal organization for the SNI entity and implementation of analytical dashboards for the Executive Committee (CODIR). The challenge was to consolidate data from disparate sources and automate processing via a scalable architecture.
-    
-        \begin{itemize}
-            \item Audit of existing IS: analysis of current stacks, comparison of PostgreSQL, MongoDB, Teradata
-            \item Hybrid technical architecture (on-premise first, with GCP Cloud proposals)
-            \item Kubernetes orchestration of dockerized Python scripts
-            \item Storage via PostgreSQL (analytical mode) and S3
-            \item Design of data schemas (tables, columns, indexes)
-            \item Integration of Jira APIs and other software packages into pipelines
-            \item Technical leadership: collaboration with 2 data engineers and 1 PO, technical review and implementation support
-            \item Best practices and centralized documentation in Confluence
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Audit of existing IT systems: stack analysis (PostgreSQL, MongoDB, Teradata).
+            \item Hybrid technical architecture (On-premise first vs Cloud GCP proposals).
+            \item Kubernetes orchestration of dockerized Python scripts. 
+            \item Storage via PostgreSQL (analytical mode) and S3.
+            \item Data schema design (tables, columns, indexes). 
+            \item Selection of Python libraries (pandas, SQLAlchemy) and Jira API integration.
+            \item Dataviz: dynamic Power BI dashboards for the Executive Committee. 
+            \item Technical leadership: mentoring 2 data engineers and 1 PO, implementation support.
+            \item Best practices and centralized documentation in Confluence.
         \end{itemize}
     
         \textit{Skills:} Kubernetes · GCP · GitLab CI/CD · Python · AWS S3 · SQL · MongoDB · PostgreSQL · Teradata · PowerBI · Elastic Stack (ELK)
     }
 
     \newsectionspace
-    \experience{Mar. 2025}{Sept. 2025}{SFEIR}{Data Consultant}{Neuilly Sur Seine, FR}{
-        \textit{Context:}
-        \link{https://sfeir.com}{SFEIR} is a leading digital strategy firm and top Google Cloud Platform partner.
-        In charge of \textbf{technical recruitment} for profiles including:
-        \begin{itemize}
-            \item Data Engineers / Data Scientists
-            \item MLOps / DevOps
-            \item Fullstack Developers
-        \end{itemize}    
+    \experience{Mar. 2025}{Sept. 2025}{SFEIR}{Data Consultant}{Neuilly, FR}{
+        \textit{Context:} SFEIR is a leading Google Cloud Platform (GCP) partner. 
+        In charge of \textbf{technical recruitment} for: Data Engineers, Data Scientists, ML Ops, DevOps, and Fullstack profiles.
+        
         \textit{Skills:} GCP (Google Cloud Platform)
     }
 
     \newsectionspace
-    \experience{Jan. 2023}{Jan. 2025}{Engie [Visian]}{Data Consultant}{Paris, FR}{
-        \textit{Context:}
-        \link{https://particuliers.engie.fr/}{Engie} is the leading provider of natural gas and green electricity in France.
-    
-        \textbf{Data Engineer} in an agile team (5 people) developing energy-saving products within the SAFe framework.
-        \begin{itemize}
-            \item Ecodefi+ \link{https://particuliers.engie.fr/electricite/contrat-electricite/mon-bonus-engie.html}{(Mon Bonus Engie)}: Rewards customers for energy sobriety (\textbf{300k users}).
-            \item ICE \link{https://particuliers.engie.fr/decouvrir-espace-client/application-mobile/meteo-carbone-elec.html}{(Impact Carbone Elec)}: Future carbon peak analysis for consumption adaptation (\textbf{1M users}).
-            \item Ecogestes Dynamiques: Explaining household electrical impact (\textbf{1M users}).
+    \experience{Jan. 2023}{Jan. 2025}{Visian}{Data Consultant for Engie}{Paris, FR}{
+        \textit{Context:} Engie is a global energy leader. \textbf{Data Engineer} within an agile team (SAFe) developing "Mon Bonus Engie", ICE, and "Ecogestes Dynamiques" products.
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Mon Bonus Engie: energy efficiency reward service (\textbf{300k clients}).
+            \item ICE (Impact Carbone Elec): future carbon consumption analysis (\textbf{1M clients}).
+            \item Ecogestes Dynamiques: explaining household electrical object impacts (\textbf{1M clients}).
         \end{itemize}
-    
-        \textbf{Responsibilities:}
-        \begin{itemize}
-            \item Large-scale data management and flow orchestration
-            \item Technical and functional KPI development
-            \item Solution monitoring and alerting
-            \item REST API development (100k requests/day, latency < 1s)
-            \item AWS micro-services and digital platform architecture
-            \item Performance optimization (memory, execution time, refactoring)
-            \item Scaling Deep Learning algorithms (DeepAR, Temporal Fusion Transformer)
+
+        \textbf{Missions}
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Product implementation and large-scale data management (DBs, flow orchestration).
+            \item Technical and functional KPI development.
+            \item Monitoring and Alerting solutions.
+            \item REST API creation (100k calls/day, latency < 1s).
+            \item AWS micro-services and digital platform architecture participation.
+            \item Performance optimizations (memory, execution time, refactoring, indexing).
+            \item Automated reporting via SNS and GitLab CICD.
+            \item Scaling Deep Learning algorithms (DeepAR, Temporal Fusion Transformer). 
         \end{itemize}
-    
-        \textit{Skills:} c3ai · JavaScript · Jenkins · AWS Lambda · Amazon Kinesis · Databricks · Python · AWS S3 · Terraform · Amazon CloudWatch · Splunk · MLflow · Amazon DynamoDB · Apache Airflow · Amazon SQS · Amazon SNS
+
+        \textit{Skills:} c3ai · JavaScript · Jenkins · AWS Lambda · Kinesis · Databricks · Python · Terraform · CloudWatch · MLflow · DynamoDB · Airflow · SQS · SNS
     }
         
     \newsectionspace
     \experience{Jan. 2023}{Jan. 2025}{Visian}{Data Consultant}{La Défense, FR}{
-        \textit{Context:}
-        \link{https://visian.tech/}{Visian} is a \textbf{consulting} firm specialized in large-scale data projects.
-        \begin{itemize}
-            \item Technical recruitment lead (Data, DevOps, Fullstack)
-            \item \textbf{Direction of the Pysquad project}: internal digital project development
-            \item Coordination of a \textbf{Generative AI project} for inference tasks using Azure ML/DL and Azure AI Studio
-            \item \textbf{Data platform creation} to streamline sales and consultant data management
+        \textit{Context:} Data consulting firm specialized in large-scale data projects.
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Recruitment of technical profiles (Data Engineers, Scientists, DevOps).
+            \item \textbf{Direction of the Pysquad project} (internal digital projects).
+            \item Coordination of \textbf{Generative AI projects} using Azure AI Studio.
+            \item \textbf{Creation of a data platform} to assist sales teams with prospect and consultant data.
         \end{itemize}
-        \textit{Skills:} Docker · Azure AI Studio · Django · Streamlit · PowerBI · FastAPI · Elastic Stack (ELK) · AWS RDS · Redis
+        \textit{Skills:} Docker · Azure AI Studio · Django · Streamlit · PowerBI · FastAPI · Redis · AWS Code Artifacts
     }
 
     \newsectionspace
     \experience{Aug. 2021}{Oct. 2022}{Aqua Digital Rising}{Lead Data Scientist}{Paris, FR}{
-        \textit{Context:}
-        \link{https://www.linkedin.com/company/aqua-digital-rising/}{Aqua Digital Rising} is a \textbf{Fintech startup} revolutionizing sports betting via statistical analysis.
-
-        \begin{itemize}
-            \item Storage management and cleaning of large datasets (MongoDB, SQL Server, HDF5) from Sport Radar and Opta
-            \item Data flow optimization in Python and SQL Server indexing for high-speed read (hundreds of GBs)
-            \item Configurable REST API development for front-end data aggregation retrieval
-            \item Live statistical updates using Redis and RabbitMQ
-            \item Machine learning (clustering) for player and team performance analysis
-            \item Deployment of Azure services (Functions, Web Services, Pipelines)
-            \item Quantitative crypto-currency analysis using InfluxDB
+        \textit{Context:} Fintech startup aiming to revolutionize sports betting through data.
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Storage management (MongoDB, SQL Server, HDF5) and Python flow structuring.
+            \item High-performance REST API with Redis caching and RabbitMq live updates.
+            \item ML algorithms (clustering) and statistical analysis for players and teams.
+            \item Azure service configuration (Functions, Web Services, Pipelines, Keyvault). 
+            \item Team coordination: leading 1 Data Scientist and 1 Front-end Developer.
         \end{itemize}
-
-        \textit{Skills:} MS SQL Server · Scikit-learn · Redis · RabbitMQ · InfluxDB · Bash · MongoDB · Microsoft Azure
+        \textit{Skills:} SQL Server · Scikit-learn · Redis · JIRA · RabbitMQ · InfluxDB · Bash · MongoDB · Microsoft Azure
     }
 
     \newsectionspace
-    \experience{Feb. 2021}{July 2021}{Orange Business Services}{Data Scientist}{Paris, FR}{
-        \textit{Context:} \textbf{Digital transformation consulting} for communication projects.
-        \begin{itemize}
-            \item VoIP network anomaly diagnosis using machine learning (clustering)
-            \item Dynamic VoIP network graph visualization with Kibana and Neo4j
-            \item DevOps monitoring (CPU, storage) of Elastic server clusters
-            \item Automated log management using log4j
+    \experience{Feb. 2021}{July 2021}{Orange Business}{Data Scientist}{Paris, FR}{
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Diagnostics of VoIP network anomalies using Machine Learning (clustering).
+            \item Creation of dynamic VoIP network graphs with Kibana and Neo4J.
+            \item DevOps metric analysis of Elastic server clusters.
+            \item Log cleanup automation using log4j and Bash.
         \end{itemize}
-        \textit{Skills:} HTML · Scikit-learn · Elastic Stack (ELK) · CSS · Python · Neo4j · JavaScript · Bash
+        \textit{Skills:} HTML · Scikit-learn · ELK · CSS · Python · Neo4j · JavaScript · Bash
     }
 
     \newsectionspace
     \experience{Aug. 2020}{Mar. 2021}{Digiberries}{Software Engineer}{Paris, FR}{
-        \textit{Context:} \textbf{SEO agency} focused on web referencing strategies.
-        \begin{itemize}
-            \item Automation of Excel reporting from Google Ads data
-            \item Development of SEO analysis tools and PDF report generation (Lighthouse, NodeJS)
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Automation of Excel report generation from Google Ads data.
+            \item SEO analysis tool and automated PDF report generation (Lighthouse, NodeJS).
+            \item Email automation scripts.
         \end{itemize}
         \textit{Skills:} Lighthouse · Python · Google Ads · Node.js
     }
 
     \newsectionspace
     \experience{Apr. 2020}{Aug. 2020}{Eudonet CRM}{Data Scientist}{Courbevoie, FR}{
-        \textit{Context:} \textbf{B2B CRM software development}.
-        \begin{itemize}
-            \item ELK stack implementation (ElasticSearch, Kibana, Logstash) for IIS log analysis
-            \item Python algorithm for customer churn detection (FBProphet)
-            \item Dynamic web platform for visualization (JavaScript, Node.js)
-            \item PowerShell scripting for IIS application management
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Elastic Stack (ELK + Filebeat) implementation for Windows IIS log analysis.
+            \item Python algorithm for client churn/usage drop detection (FBProphet).
+            \item Dynamic web platform (Node.js) for result visualization.
+            \item PowerBI dashboards for project management and PowerShell IIS scripts.
         \end{itemize}
-        \textit{Skills:} MS SQL Server · PowerShell · ELK · Python · Power BI · JavaScript · Bash
+        \textit{Skills:} SQL Server · PowerShell · ELK · Python · Power BI · JavaScript · Bash
     }
 
     \newsectionspace
     \experience{July 2019}{Sept. 2019}{Veesion}{Software Engineer}{Paris, FR}{
-        \textit{Context:} Scale-up focused on \textbf{automated theft detection} via AI.
-        \begin{itemize}
-            \item Development of an internal platform for video labeling and visualization with Django
-            \item Data classification for computer vision model training
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Built an internal video labeling and visualization platform with Django.
+            \item Data classification for computer vision model training.
         \end{itemize}
         \textit{Skills:} HTML · CSS · Python · JavaScript · Amazon S3 · Django
     }
 
-    \newsection{Projects}
-    
-    \newsectionspace
-    \project{2024}{Artificial Intelligence}{Automated creation of multimodal digital content.}
-    \newsectionspace
-    \project{2024}{Finance}{Financial analysis algorithms and visualizations (Python).}
-    \newsectionspace
-    \project{2021}{Sorting Algorithms}{Sorting algorithm visualization platform (React).}
-    \newsectionspace
-    \project{2020}{NLP}{Messenger chatbot for displaying song lyrics.}
-    \newsectionspace
-    \project{2020}{Computer Vision}{Finger gesture transformation into equations via webcam (TensorFlow, OpenCV).}
+    \newsection{Personal Projects}
+    \vspace{0.4em}
+    \noindent
+    \begin{minipage}[t]{\firstcolwidth} \hfill \end{minipage}
+    \begin{minipage}[t]{\linegoal}
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Artificial Intelligence}: Automated multimodal digital content creation.
+            \item \textbf{Finance}: Financial analysis algorithms and visualization tools (Python).
+            \item \textbf{Sorting Algorithms}: Algorithm visualization platform (React).
+            \item \textbf{NLP}: Chatbot displaying song lyrics (Messenger Chatbot).
+            \item \textbf{Computer Vision}: Hand gesture to equation transformation (Tensorflow, OpenCV).
+            \item \textbf{Deep Learning}: Healthy recipe scoring algorithm (Tensorflow).
+        \end{itemize}
+    \end{minipage}
 
     \newsection{Certifications}
-    
     \newsectionspace
-    \project{2025}{GCP - Associate Cloud Engineer}{\url{https://www.credly.com/badges/69fe0262-094b-4cee-82a8-a70cd10ec091}}
-    \newsectionspace
-    \project{2025}{GCP - Professional Data Engineer}{\url{https://www.credly.com/badges/888d00d8-5399-4f4c-a4ce-04d05901344a}}
+    \project{2025}{GCP - Associate Cloud Engineer / Professional Data Engineer}{}
 
     \newsection{Education}
-    
     \newsectionspace
-    \education{Sept. 2018}{June 2021}{ESILV (Graduate School of Engineering)}{Courbevoie, FR}
-    \begin{itemize}
-        \item Master's Degree in Computer Science, Big Data, and IoT
-        \item Specialization in Data Science
+    \education{Sept. 2018}{June 2021}{ESILV (Engineering School)}{Courbevoie, FR}
+    \begin{itemize}[nosep, leftmargin=*]
+        \item Master’s in Computer Science, Big Data \& IoT - Specialization in Data Science.
     \end{itemize}
 
     \newsectionspace
-    \education{Sept. 2019}{Jan. 2020}{UCR (University Of California Riverside)}{Riverside, CA, USA}
-    \begin{itemize}
-        \item CS 235: Data Mining Techniques / CS 171: Intro to Machine Learning
+    \education{Sept. 2019}{Jan. 2020}{UC Riverside (Exchange)}{Riverside, CA, USA}
+    \begin{itemize}[nosep, leftmargin=*]
+        \item Data Mining (CS 235), Machine Learning (CS 171), Python Programming (CS 009).
     \end{itemize}
     
     \newsectionspace
     \education{Sept. 2016}{Dec. 2018}{CPGE Fénelon Sainte-Marie}{Paris, FR}
-    \begin{itemize}
-        \item Intensive Prep Program (MPSI/MP): Higher Mathematics and Physics
+    \begin{itemize}[nosep, leftmargin=*]
+        \item Pre-engineering intensive program in Mathematics and Physics (MPSI / MP).
     \end{itemize}
 
     \newsection{Languages}
